@@ -1,8 +1,9 @@
 #FROM alpine:3.5
 FROM nginx:stable-alpine
 
-MAINTAINER Arvind Rawat <arvindr226@gmail.com>
+MAINTAINER Arvind Rawat <fm.marais@gmail.com>
 
+### start copy
 RUN apk --update add --no-cache openssh bash \
   && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
   && echo "root:root" | chpasswd \
@@ -19,8 +20,12 @@ RUN /usr/bin/ssh-keygen -A
 RUN ssh-keygen -t rsa -b 4096 -f  /etc/ssh/ssh_host_key
 
 EXPOSE 22 
+# end copy
+
+# remember you need to start the ssh server if manually you did not copy this
 CMD ["/usr/sbin/sshd","-D"]
 
+# Installation info
 # navigate to Dockerfile
 # > docker build -t ssh_test1 .
 # > docker images (view newly created)
