@@ -46,6 +46,22 @@ Remember you need to now manually start the sshd server to connect to it using
 kubectl exec my-app-name-here /usr/sbin/sshd -D
 ```
 
+Forward your container port, edit your service.yml and add your port forward config 22->2222 eg.<br>
+Here we forward 5000 to 80 (Our web server, you might not have this, not required)<br>
+***Our ssh port forward 22 to 2222 (You need to add this)***
+```
+spec:
+  ports:
+    - name: 80-5000
+      port: 80
+      protocol: TCP
+      targetPort: 5000
+    - name: 2222-22
+      port: 2222
+      protocol: TCP
+      targetPort: 22
+```
+
 You should now be able to connect using your `minikube ip`:`nodeport`<br>
 <br>
 Get your minikube ip
