@@ -41,21 +41,16 @@ Copy everything from below `### start copy` to `### end copy`<br>
 Paste all this into your existing kubernetes projects `Dockerfile` before your existing `CMD` command<br>
 This should now install and setup ssh in your container.<br>
 <br>
-Remember you need to now manually start the sshd server to connect to it using
+Remember you need to now manually start the sshd server to connect to it using (leave this window open for ssh server to be running)
 ```
-kubectl exec my-app-name-here /usr/sbin/sshd -D
+kubectl exec my-pod-name-6f4777f4f7-75cl2 -i -t -- /usr/sbin/sshd -D
 ```
 
 Forward your container port, edit your service.yml and add your port forward config 22->2222 eg.<br>
-Here we forward 5000 to 80 (Our web server, you might not have this, not required)<br>
 ***Our ssh port forward 22 to 2222 (You need to add this)***
 ```
 spec:
   ports:
-    - name: 80-5000
-      port: 80
-      protocol: TCP
-      targetPort: 5000
     - name: 2222-22
       port: 2222
       protocol: TCP
