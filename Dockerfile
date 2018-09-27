@@ -1,7 +1,7 @@
 #FROM alpine:3.5
 FROM nginx:stable-alpine
 
-MAINTAINER Arvind Rawat <fm.marais@gmail.com>
+MAINTAINER Francois Marais <fm.marais@gmail.com>
 
 ### start copy
 RUN apk --update add --no-cache openssh bash \
