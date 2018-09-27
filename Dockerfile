@@ -20,7 +20,7 @@ RUN /usr/bin/ssh-keygen -A
 RUN ssh-keygen -t rsa -b 4096 -f  /etc/ssh/ssh_host_key
 
 EXPOSE 22 
-# end copy
+### end copy
 
 # remember you need to start the ssh server if manually you did not copy this
 CMD ["/usr/sbin/sshd","-D"]
