@@ -24,7 +24,7 @@ EXPOSE 22
 
 # remember you need to start the ssh server if manually you did not copy this
 # start ssh server on minikube using
-# > kubectl exec my-app-name-here /usr/sbin/sshd -D
+# > kubectl exec my-pod-name-here-123ff2123-1123 /usr/sbin/sshd -D
 CMD ["/usr/sbin/sshd","-D"]
 
 # Installation info
