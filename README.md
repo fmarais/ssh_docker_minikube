@@ -82,3 +82,5 @@ Connect using
 ssh root@192.168.64.34 -p 32529
 ```
 ***password: root***
+
+## Important: Do not expose ssh like this on production, use this for debugging only
